@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useShop } from '../context/ShopContext'
 import { assets } from '../assets/assets'
+import { getImageUrl } from '../utils/imageUrl'
 
 const Home = () => {
   const { products, currency } = useShop()
@@ -153,7 +154,7 @@ const Home = () => {
                   <div className='relative overflow-hidden aspect-[5/7] max-h-[400px]'>
                     <img
                       className='w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out'
-                      src={product.image?.[0] || ''}
+                      src={getImageUrl(product.image?.[0]) || ''}
                       alt={product.name}
                     />
                     <div className='absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500' />

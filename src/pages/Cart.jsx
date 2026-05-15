@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useShop } from '../context/ShopContext'
 import { toast } from 'react-toastify'
+import { getImageUrl } from '../utils/imageUrl'
 
 const Cart = () => {
   const { products, currency, cartItems, updateQuantity, getCartAmount, delivery_fee, token } = useShop()
@@ -91,7 +92,7 @@ const Cart = () => {
               <Link to={`/product/${item._id}`} className='flex-shrink-0'>
                 <img
                   className='w-24 h-32 sm:w-28 sm:h-36 object-cover rounded-xl aspect-[5/7]'
-                  src={item.image?.[0] || ''}
+                  src={getImageUrl(item.image?.[0]) || ''}
                   alt={item.name}
                 />
               </Link>

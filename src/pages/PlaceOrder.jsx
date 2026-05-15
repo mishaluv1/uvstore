@@ -3,6 +3,7 @@ import { useShop } from '../context/ShopContext'
 import { assets } from '../assets/assets'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { getImageUrl } from '../utils/imageUrl'
 
 const PlaceOrder = () => {
   const {
@@ -300,7 +301,7 @@ const PlaceOrder = () => {
                   <div key={i} className='flex items-center gap-3'>
                     <img
                       className='w-12 h-16 object-cover rounded-lg aspect-[5/7]'
-                      src={item.image}
+                      src={getImageUrl(item.image)}
                       alt={item.name}
                     />
                     <div className='flex-1 min-w-0'>

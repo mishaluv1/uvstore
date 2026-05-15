@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { useShop } from '../context/ShopContext'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { getImageUrl } from '../utils/imageUrl'
 
 const API_URL = 'https://uvstoredb1.onrender.com/api'
 
@@ -855,7 +856,7 @@ const Admin = () => {
                                                     <td className='py-3 px-4'>
                                                         <div className='flex items-center gap-3'>
                                                             <img
-                                                                src={product.image?.[0] || 'https://via.placeholder.com/40'}
+                                                                src={getImageUrl(product.image?.[0]) || 'https://via.placeholder.com/40'}
                                                                 alt={product.name}
                                                                 className='w-10 h-10 object-cover rounded-lg aspect-square'
                                                             />

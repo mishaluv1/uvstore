@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useShop } from '../context/ShopContext'
+import { getImageUrl } from '../utils/imageUrl'
 
 const Collection = () => {
   const { products, currency } = useShop()
@@ -201,7 +202,7 @@ const Collection = () => {
                     <div className='relative overflow-hidden aspect-[5/7] max-h-[400px]'>
                       <img
                         className='w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out'
-                        src={product.image?.[0] || ''}
+                        src={getImageUrl(product.image?.[0]) || ''}
                         alt={product.name}
                       />
                       {product.bestseller && (

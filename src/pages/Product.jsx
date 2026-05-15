@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useShop } from '../context/ShopContext'
 import { toast } from 'react-toastify'
+import { getImageUrl } from '../utils/imageUrl'
 
 const Product = () => {
   const { productId } = useParams()
@@ -73,7 +74,7 @@ const Product = () => {
                   : 'border-surface-200 hover:border-surface-400'
                   }`}
               >
-                <img className='w-full h-full object-cover aspect-square' src={img} alt={`${product.name} ${i + 1}`} />
+                <img className='w-full h-full object-cover aspect-square' src={getImageUrl(img)} alt={`${product.name} ${i + 1}`} />
               </button>
             ))}
           </div>
@@ -82,7 +83,7 @@ const Product = () => {
           <div className='flex-1 glass rounded-3xl overflow-hidden aspect-[5/7] max-h-[500px]'>
             <img
               className='w-full h-full object-cover animate-scale-in'
-              src={image}
+              src={getImageUrl(image)}
               alt={product.name}
             />
           </div>
@@ -251,7 +252,7 @@ const Product = () => {
                   <div className='relative overflow-hidden aspect-[5/7]'>
                     <img
                       className='w-full h-full object-cover group-hover:scale-110 transition-transform duration-700'
-                      src={p.image?.[0] || ''}
+                      src={getImageUrl(p.image?.[0]) || ''}
                       alt={p.name}
                     />
                   </div>

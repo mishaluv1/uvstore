@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useShop } from '../context/ShopContext'
 import { Link, useNavigate } from 'react-router-dom'
+import { getImageUrl } from '../utils/imageUrl'
 
 const Orders = () => {
   const { currency, token, API_URL } = useShop()
@@ -178,7 +179,7 @@ const Orders = () => {
                         {order.items?.map((item, idx) => (
                           <div key={idx} className='flex items-center gap-3'>
                             {item.image && (
-                              <img className='w-12 h-16 object-cover rounded-lg aspect-[5/7]' src={item.image} alt={item.name} />
+                              <img className='w-12 h-16 object-cover rounded-lg aspect-[5/7]' src={getImageUrl(item.image)} alt={item.name} />
                             )}
                             <div className='min-w-0'>
                               <p className='text-sm font-medium text-surface-900 truncate'>{item.name}</p>
